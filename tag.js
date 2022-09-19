@@ -69,7 +69,7 @@ if(eventModel.action_source || data.actionSource) {
 
 event.user_data = {};
 // Default Tag Parameters
-event.user_data.client_ip_address = eventModel.ip_override.substring(0, eventModel.ip_override.lastIndexOf(':'));
+event.user_data.client_ip_address = eventModel.ip_override.split(':').length > 3 ? eventModel.ip_override : eventModel.ip_override.substring(0, eventModel.ip_override.lastIndexOf(':'));
 event.user_data.client_user_agent = eventModel.user_agent;
 
 
